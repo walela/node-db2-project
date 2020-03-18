@@ -27,7 +27,7 @@ function insert(car) {
     })
 }
 
-app.get('/', (req, res) => {
+app.get('/api/cars/', (req, res) => {
   getAll()
     .then(resp => {
       res.status(200).json(resp)
@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
     })
 })
 
-app.get('/:id', (req, res) => {
+app.get('/api/cars/:id', (req, res) => {
   const { id } = req.params
   getById(id)
     .then(resp => {
@@ -50,7 +50,7 @@ app.get('/:id', (req, res) => {
     })
 })
 
-app.post('/', (req, res) => {
+app.post('/api/cars/', (req, res) => {
   const car = req.body
   insert(car)
     .then(resp => {
@@ -63,5 +63,5 @@ app.post('/', (req, res) => {
 })
 
 app.listen(PORT, () => {
-  console.log(`listening on ${PORT}`)
+  console.log(`Server listening on ${PORT}`)
 })
