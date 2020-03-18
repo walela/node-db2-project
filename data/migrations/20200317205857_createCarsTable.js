@@ -5,7 +5,7 @@ exports.up = function(knex) {
     table.text('make', 30).notNullable()
     table.text('model', 30).notNullable()
     table.integer('mileage').notNullable()
-    table.text('transmission')
+    table.string('transmission').defaultTo('automatic')
     table.text('status')
   })
 }
